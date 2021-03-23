@@ -2,7 +2,6 @@ close all
 clear all
 tau=2*pi();
 format long
-% for K = 1:16
     
 N=1;
 K=12;
