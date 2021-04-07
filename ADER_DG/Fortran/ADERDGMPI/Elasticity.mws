@@ -1,0 +1,230 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 
+2 2 1 1 1 1 }1 1 0 0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Maple Output" -1 
+11 1 {CSTYLE "" -1 -1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }3 3 0 
+0 0 0 1 0 1 0 2 2 0 1 }{PSTYLE "Maple Output" -1 12 1 {CSTYLE "" -1 
+-1 "Times" 1 12 0 0 0 1 2 2 2 2 2 2 1 1 1 1 }1 3 0 0 0 0 1 0 1 0 2 2 
+0 1 }{PSTYLE "" 0 256 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 1 1 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 37 "restart:\nwith(linal
+g):\nwith(codegen):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 42 "assu
+me(rho>0);\nassume(cp>0);\nassume(cs>0);" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 67 "Right eigenvectors  (in x direction) of the 3D elasticity
+ equations" }{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 18 "RM:=matrix(9,9,0):" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+343 "RM[1,1]:=rho*cp^2:\nRM[1,9]:=rho*cp^2: \nRM[2,1]:=rho*(cp^2-2*cs^
+2):\nRM[2,5]:=1:\nRM[2,9]:=rho*(cp^2-2*cs^2):\nRM[3,1]:=rho*(cp^2-2*cs
+^2):\nRM[3,6]:=1:\nRM[3,9]:=rho*(cp^2-2*cs^2):\nRM[4,2]:=rho*cs^2:\nRM
+[4,8]:=rho*cs^2:\nRM[5,4]:=1:\nRM[6,3]:=rho*cs^2:\nRM[6,7]:=rho*cs^2:
+\nRM[7,1]:=cp:\nRM[7,9]:=-cp:\nRM[8,2]:=cs:\nRM[8,8]:=-cs:\nRM[9,3]:=c
+s:\nRM[9,7]:=-cs:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 10 "print(
+RM):" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#K%'matrixG6#7+7+*&%%rho|irG\"
+\"\")%$cp|irG\"\"#F*\"\"!F.F.F.F.F.F.F(7+*&F)F*,&*$F+F*F**&F-F*)%$cs|i
+rGF-F*!\"\"F*F.F.F.F*F.F.F.F07+F0F.F.F.F.F*F.F.F07+F.*&F)F*F4F*F.F.F.F
+.F.F9F.7+F.F.F.F*F.F.F.F.F.7+F.F.F9F.F.F.F9F.F.7+F,F.F.F.F.F.F.F.,$F,F
+67+F.F5F.F.F.F.F.,$F5F6F.7+F.F.F5F.F.F.F?F.F.Q(pprint06\"" }}}{EXCHG 
+{PARA 0 "" 0 "" {TEXT -1 53 "Left eigenvectors = inverse of the right \+
+eigenvectors" }{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 17 "iRM:=inverse(RM):" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 12 "Eige
+nvalues " }{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 
+128 "L:=matrix(9,9,0):\nL[1,1]:=-cp:\nL[2,2]:=-cs:\nL[3,3]:=-cs:\nL[4,
+4]:=0:\nL[5,5]:=0:\nL[6,6]:=0:\nL[7,7]:=+cs:\nL[8,8]:=+cs:\nL[9,9]:=+c
+p:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 9 "print(L):" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6#K%'matrixG6#7+7+,$%$cp|irG!\"\"\"\"!F+F+F+F+F+F
++F+7+F+,$%$cs|irGF*F+F+F+F+F+F+F+7+F+F+F-F+F+F+F+F+F+7+F+F+F+F+F+F+F+F
++F+F0F07+F+F+F+F+F+F+F.F+F+7+F+F+F+F+F+F+F+F.F+7+F+F+F+F+F+F+F+F+F)Q(p
+print06\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 14 "#fortran(iRM);
+" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 129 "The PDE system is invariant \+
+w.r.t. rotations, hence we can rotate in any direction we want. Build \+
+the associated rotation matrix " }{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 
+"> " 0 "" {MPLTEXT 1 0 68 "nv:=vector(3,[1,0,0]);\nsv:=vector(3,[0,1,0
+]);\ntv:=vector(3,[0,0,1]);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#nvGK
+%'vectorG6#7%\"\"\"\"\"!F*Q(pprint06\"" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#>%#svGK%'vectorG6#7%\"\"!\"\"\"F)Q(pprint06\"" }}{PARA 11 "" 1 "
+" {XPPMATH 20 "6#>%#tvGK%'vectorG6#7%\"\"!F)\"\"\"Q(pprint06\"" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 826 "TM:=matrix(9,9,[nv[1]^2,sv[
+1]^2,tv[1]^2,2*nv[1]*sv[1],2*sv[1]*tv[1],2*nv[1]*tv[1],0,0,0,\n       \+
+         nv[2]^2,sv[2]^2,tv[2]^2,2*nv[2]*sv[2],2*sv[2]*tv[2],2*nv[2]*t
+v[2],0,0,0,\n                nv[3]^2,sv[3]^2,tv[3]^2,2*nv[3]*sv[3],2*s
+v[3]*tv[3],2*nv[3]*tv[3],0,0,0,\n                nv[2]*nv[1],sv[2]*sv[
+1],tv[2]*tv[1],nv[2]*sv[1]+nv[1]*sv[2],sv[2]*tv[1]+sv[1]*tv[2],nv[2]*t
+v[1]+nv[1]*tv[2],0,0,0,\n                nv[3]*nv[2],sv[3]*sv[2],tv[3]
+*tv[2],nv[3]*sv[2]+nv[2]*sv[3],sv[3]*tv[2]+sv[2]*tv[3],nv[3]*tv[2]+nv[
+2]*tv[3],0,0,0,\n                nv[3]*nv[1],sv[3]*sv[1],tv[3]*tv[1],n
+v[3]*sv[1]+nv[1]*sv[3],sv[3]*tv[1]+sv[1]*tv[3],nv[3]*tv[1]+nv[1]*tv[3]
+,0,0,0,\n                0, 0, 0, 0, 0, 0, nv[1], sv[1], tv[1],\n     \+
+           0, 0, 0, 0, 0, 0, nv[2], sv[2], tv[2],\n                0, \+
+0, 0, 0, 0, 0, nv[3], sv[3], tv[3]]);" }}{PARA 11 "" 1 "" {XPPMATH 20 
+"6#>%#TMGK%'matrixG6#7+7+\"\"\"\"\"!F+F+F+F+F+F+F+7+F+F*F+F+F+F+F+F+F+
+7+F+F+F*F+F+F+F+F+F+7+F+F+F+F*F+F+F+F+F+7+F+F+F+F+F*F+F+F+F+7+F+F+F+F+
+F+F*F+F+F+7+F+F+F+F+F+F+F*F+F+7+F+F+F+F+F+F+F+F*F+7+F+F+F+F+F+F+F+F+F*
+Q(pprint06\"" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 17 "iTM:=invers
+e(TM);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%$iTMGK%'matrixG6#7+7+\"\"
+\"\"\"!F+F+F+F+F+F+F+7+F+F*F+F+F+F+F+F+F+7+F+F+F*F+F+F+F+F+F+7+F+F+F+F
+*F+F+F+F+F+7+F+F+F+F+F*F+F+F+F+7+F+F+F+F+F+F*F+F+F+7+F+F+F+F+F+F+F*F+F
++7+F+F+F+F+F+F+F+F*F+7+F+F+F+F+F+F+F+F+F*Q(pprint06\"" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 25 "evalm(TM&*transpose(TM));" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#K%'matrixG6#7+7+\"\"\"\"\"!F)F)F)F)F)F)F)7+F
+)F(F)F)F)F)F)F)F)7+F)F)F(F)F)F)F)F)F)7+F)F)F)F(F)F)F)F)F)7+F)F)F)F)F(F
+)F)F)F)7+F)F)F)F)F)F(F)F)F)7+F)F)F)F)F)F)F(F)F)7+F)F)F)F)F)F)F)F(F)7+F
+)F)F)F)F)F)F)F)F(Q(pprint06\"" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 33 "
+The sign of the eigenvalue matrix" }{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 
+0 "> " 0 "" {MPLTEXT 1 0 135 "SL:=matrix(9,9,0):\nSL[1,1]:=-1:\nSL[2,2
+]:=-1:\nSL[3,3]:=-1:\nSL[4,4]:=+0:\nSL[5,5]:=+0:\nSL[6,6]:=+0:\nSL[7,7
+]:=+1:\nSL[8,8]:=+1:\nSL[9,9]:=+1:" }}}{EXCHG {PARA 0 "" 0 "" {TEXT 
+-1 150 "Just to check: the matrix below must be one of the system matr
+ices in x y and z direction of the original PDE (depending on the choi
+ce of nv, tv, sv) " }{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 40 "A:=simplify(evalm(TM&*RM&*L&*iRM&*iTM));" }}{PARA 11 
+"" 1 "" {XPPMATH 20 "6#>%\"AGK%'matrixG6#7+7+\"\"!F*F*F*F*F*,$*&%%rho|
+irG\"\"\")%$cp|irG\"\"#F.!\"\"F*F*7+F*F*F*F*F*F*,$*&F-F.,&*$F/F.F.*&F1
+F.)%$cs|irGF1F.F2F.F2F*F*F37+F*F*F*F*F*F*F*,$*&F-F.F9F.F2F*7+F*F*F*F*F
+*F*F*F*F*7+F*F*F*F*F*F*F*F*F<7+,$*&F.F.F-F2F2F*F*F*F*F*F*F*F*7+F*F*F*F
+AF*F*F*F*F*7+F*F*F*F*F*FAF*F*F*Q(pprint06\"" }}}{EXCHG {PARA 0 "" 0 "
+" {TEXT -1 29 "The sign matrix of matrix A  " }{MPLTEXT 1 0 0 "" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 32 "SA:=evalm(TM&*RM&*SL&*iRM&*i
+TM);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#SAGK%'matrixG6#7+7+\"\"!F*F
+*F*F*F*,$*&%%rho|irG\"\"\"%$cp|irGF.!\"\"F*F*7+F*F*F*F*F*F*,$*(F-F.,&*
+$)F/\"\"#F.F.*&F7F.)%$cs|irGF7F.F0F.F/F0F0F*F*F17+F*F*F*F*F*F*F*,$*&F:
+F.F-F.F0F*7+F*F*F*F*F*F*F*F*F*7+F*F*F*F*F*F*F*F*F<7+,$*&F.F.*&F/F.F-F.
+F0F0F*F*F*F*F*F*F*F*7+F*F*F*,$*&F.F.*&F:F.F-F.F0F0F*F*F*F*F*7+F*F*F*F*
+F*FEF*F*F*Q(pprint06\"" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 167 "We can
+ specify three incoming characteristics, i.e. those with lambda < 0, b
+ut we do not yet know the good coefficients a1, a2 a3 that multiply ea
+ch right eigenvector " }{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 120 "r1:=vector(9):\nr2:=vector(9):\nr3:=vector(9):\nfor \+
+i from 1 to 9 do\n r1[i]:=RM[i,1]:\n r2[i]:=RM[i,2]:\n r3[i]:=RM[i,3]:
+\nod:" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 39 "QR:=simplify(evalm
+(a1*r1+a2*r2+a3*r3));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%#QRGK%'vect
+orG6#7+*(%#a1G\"\"\"%%rho|irGF+)%$cp|irG\"\"#F+*(F*F+F,F+,&*$F-F+F+*&F
+/F+)%$cs|irGF/F+!\"\"F+F0*(%#a2GF+F,F+F4F+\"\"!*(%#a3GF+F,F+F4F+*&F*F+
+F.F+*&F8F+F5F+*&F;F+F5F+Q(pprint06\"" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 222 "QL:=vector(9):\n# Just to check: also the simple and
+ sloppy choice below (which blew up) IS indeed a solution of the inver
+se Riemann problem  \nQRsimple:=vector(9,[-QL[1],QL[2],QL[3],-QL[4],QL
+[5],-QL[6],QL[7],QL[8],QL[9]]):\n" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 
+250 "The Godunov state coming from the exact solution of the FORWARD R
+iemann problem using the simple sloppy Dumbser & K\344ser BC. We can e
+asily see that this IS actually an exact solution of the inverse Riema
+nn problem, since it yields zero normal stress  " }{MPLTEXT 1 0 0 "" }
+}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 69 "QGodSimple:=simplify(evalm
+(1/2*(QRsimple+QL)-1/2*SA&*(QRsimple-QL)));" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%+QGodSimpleGK%'vectorG6#7+\"\"!&%#QLG6#\"\"#&F+6#\"\"
+$F)&F+6#\"\"&F)*(,&*(&F+6#\"\"(\"\"\"%%rho|irGF:%$cp|irGF:F:&F+6#F:!\"
+\"F:F;F?F<F?*(,&*(&F+6#\"\")F:%$cs|irGF:F;F:F:&F+6#\"\"%F?F:FFF?F;F?*(
+,&*(&F+6#\"\"*F:FFF:F;F:F:&F+6#\"\"'F?F:FFF?F;F?Q(pprint06\"" }}}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 105 "The Godunov state, coming from th
+e exact solution of the FORWARD Riemann problem using characteristic B
+C " }{MPLTEXT 1 0 1 " " }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 51 "Q
+God:=simplify(evalm(1/2*(QR+QL)-1/2*SA&*(QR-QL)));" }}{PARA 12 "" 1 "
+" {XPPMATH 20 "6#>%%QGodGK%'vectorG6#7+,(*(%#a1G\"\"\"%%rho|irGF,)%$cp
+|irG\"\"#F,F,*&#F,F0F,&%#QLG6#F,F,F,*&#F,F0F,*(&F46#\"\"(F,F-F,F/F,F,!
+\"\",$*&F2F,*&,,**F0F,F+F,F-F,)F/\"\"$F,F,*,\"\"%F,F+F,F-F,F/F,)%$cs|i
+rGF0F,F<*&&F46#F0F,F/F,F,*(F-F,F.F,F9F,F<**F0F,F-F,FFF,F9F,F,F,F/F<F,F
+,,$*&F2F,*&,,**F0F,F+F,F-F,FBF,F,*,FEF,F+F,F-F,F/F,FFF,F<*&&F46#FCF,F/
+F,F,FKF<**F0F,F-F,FFF,F9F,F,F,F/F<F,F,,(*(%#a2GF,F-F,FFF,F,*&F2F,&F46#
+FEF,F,*&#F,F0F,*(&F46#\"\")F,FGF,F-F,F,F<,$*&F2F,&F46#\"\"&F,F,,(*(%#a
+3GF,F-F,FFF,F,*&F2F,&F46#\"\"'F,F,*&#F,F0F,*(&F46#\"\"*F,FGF,F-F,F,F<,
+$*&F2F,*(,(**F0F,F+F,F-F,F.F,F,F8F,F3F<F,F-F<F/F<F,F,,$*&F2F,*(,(**F0F
+,FYF,F-F,FFF,F,FinF,FenF<F,FGF<F-F<F,F,,$*&F2F,*(,(**F0F,FdoF,F-F,FFF,
+F,F[pF,FfoF<F,FGF<F-F<F,F,Q(pprint06\"" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 59 "This is the boundary condition we want: zero normal stres
+s " }{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 51 "eq
+n1:=QGod[1]=0:\neqn2:=QGod[4]=0:\neqn3:=QGod[6]=0:\n" }}}{EXCHG {PARA 
+0 "" 0 "" {TEXT -1 39 "Solve the linear system for a1, a2, a3 " }
+{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 35 "solve(
+\{eqn1,eqn2,eqn3\},\{a1,a2,a3\});" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#<
+%/%#a1G,$*&#\"\"\"\"\"#F)*(,&*(&%#QLG6#\"\"(F)%%rho|irGF)%$cp|irGF)F)&
+F/6#F)!\"\"F)F2F6F3!\"#F)F)/%#a2G,$*&F(F)*(,&*(&F/6#\"\")F)%$cs|irGF)F
+2F)F)&F/6#\"\"%F6F)F2F6FBF7F)F)/%#a3G,$*&F(F)*(,&*(&F/6#\"\"*F)FBF)F2F
+)F)&F/6#\"\"'F6F)F2F6FBF7F)F)" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 
+0 119 "a1:=1/2*(-QL[1]+rho*cp*QL[7])/rho/cp^2;\na2:=1/2*(-QL[4]+rho*cs
+*QL[8])/rho/cs^2;\na3:=1/2*(-QL[6]+rho*cs*QL[9])/rho/cs^2;" }}{PARA 
+11 "" 1 "" {XPPMATH 20 "6#>%#a1G,$*&#\"\"\"\"\"#F(*(,&*(&%#QLG6#\"\"(F
+(%%rho|irGF(%$cp|irGF(F(&F.6#F(!\"\"F(F1F5F2!\"#F(F(" }}{PARA 11 "" 1 
+"" {XPPMATH 20 "6#>%#a2G,$*&#\"\"\"\"\"#F(*(,&*(&%#QLG6#\"\")F(%$cs|ir
+GF(%%rho|irGF(F(&F.6#\"\"%!\"\"F(F2F6F1!\"#F(F(" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#>%#a3G,$*&#\"\"\"\"\"#F(*(,&*(&%#QLG6#\"\"*F(%$cs|irGF(
+%%rho|irGF(F(&F.6#\"\"'!\"\"F(F2F6F1!\"#F(F(" }}}{EXCHG {PARA 0 "> " 
+0 "" {MPLTEXT 1 0 50 "for i from 1 to 9 do\n  print(simplify(QR[i]));
+\nod:" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,&*&#\"\"\"\"\"#F&*(&%#QLG6#
+\"\"(F&%%rho|irGF&%$cp|irGF&F&F&*&#F&F'F&&F*6#F&F&!\"\"" }}{PARA 11 "
+" 1 "" {XPPMATH 20 "6#,$*&#\"\"\"\"\"#F&*(,&*(&%#QLG6#\"\"(F&%%rho|irG
+F&%$cp|irGF&F&&F,6#F&!\"\"F&F0!\"#,&*$)F0F'F&F&*&F'F&)%$cs|irGF'F&F3F&
+F&F&" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,$*&#\"\"\"\"\"#F&*(,&*(&%#QLG
+6#\"\"(F&%%rho|irGF&%$cp|irGF&F&&F,6#F&!\"\"F&F0!\"#,&*$)F0F'F&F&*&F'F
+&)%$cs|irGF'F&F3F&F&F&" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,&*&#\"\"\"
+\"\"#F&*(&%#QLG6#\"\")F&%$cs|irGF&%%rho|irGF&F&F&*&#F&F'F&&F*6#\"\"%F&
+!\"\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#,&*&#\"\"\"\"\"#F&*(&%#QLG6#\"\"*F&%$cs|irGF&%%rho|irGF
+&F&F&*&#F&F'F&&F*6#\"\"'F&!\"\"" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,$*
+&#\"\"\"\"\"#F&*(,&*(&%#QLG6#\"\"(F&%%rho|irGF&%$cp|irGF&F&&F,6#F&!\"
+\"F&F/F3F0F3F&F&" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,$*&#\"\"\"\"\"#F&
+*(,&*(&%#QLG6#\"\")F&%$cs|irGF&%%rho|irGF&F&&F,6#\"\"%!\"\"F&F/F4F0F4F
+&F&" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#,$*&#\"\"\"\"\"#F&*(,&*(&%#QLG6
+#\"\"*F&%$cs|irGF&%%rho|irGF&F&&F,6#\"\"'!\"\"F&F/F4F0F4F&F&" }}}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 150 "Now recompute the Godunov state. \+
+Indeed, it satisfies the boundary conditions, hence we have found (ano
+ther) solution of the inverse Riemann problem. " }{MPLTEXT 1 0 0 "" }}
+}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 51 "QGod:=simplify(evalm(1/2*(Q
+R+QL)-1/2*SA&*(QR-QL)));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%%QGodGK%
+'vectorG6#7+\"\"!,$*&#\"\"\"\"\"#F-*&,(*&&%#QLG6#F-F-)%$cp|irGF.F-F-*(
+F.F-F2F-)%$cs|irGF.F-!\"\"*&&F36#F.F-F5F-F:F-F6!\"#F-F:,$*&#F-F.F-*&,(
+F1F-*(F.F-F2F-F8F-F:*&&F36#\"\"$F-F5F-F:F-F6F>F-F:F),$*&#F-F.F-&F36#\"
+\"&F-F-F)*(,&*(&F36#\"\"(F-%%rho|irGF-F6F-F-F2F:F-FUF:F6F:*(,&*(&F36#
+\"\")F-F9F-FUF-F-&F36#\"\"%F:F-F9F:FUF:*(,&*(&F36#\"\"*F-F9F-FUF-F-&F3
+6#\"\"'F:F-F9F:FUF:Q(pprint06\"" }}}{EXCHG {PARA 0 "" 0 "" {TEXT -1 
+54 "And this is the resulting Godunov flux at the boundary" }{MPLTEXT 
+1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 31 "fGod:=simplify(e
+valm(A&*QGod));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%%fGodGK%'vectorG6
+#7+,$*&%$cp|irG\"\"\",&*(&%#QLG6#\"\"(F,%%rho|irGF,F+F,F,&F06#F,!\"\"F
+,F6,$*(,&*$)F+\"\"#F,F,*&F<F,)%$cs|irGF<F,F6F,F-F,F+F6F6F7,$*&F?F,,&*(
+&F06#\"\")F,F?F,F3F,F,&F06#\"\"%F6F,F6\"\"!,$*&F?F,,&*(&F06#\"\"*F,F?F
+,F3F,F,&F06#\"\"'F6F,F6FJFJFJQ(pprint06\"" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 166 "This would have been the Godunov flux at the boundary fo
+r the simple mirroring boundary condition (you can simply check it by \+
+uncommenting the simple mirror BC above)" }{MPLTEXT 1 0 1 " " }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 43 "fGodSimple:=simplify(evalm(A
+&*QGodSimple));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%+fGodSimpleGK%'ve
+ctorG6#7+,$*&%$cp|irG\"\"\",&*(&%#QLG6#\"\"(F,%%rho|irGF,F+F,F,&F06#F,
+!\"\"F,F6,$*(,&*$)F+\"\"#F,F,*&F<F,)%$cs|irGF<F,F6F,F-F,F+F6F6F7,$*&F?
+F,,&*(&F06#\"\")F,F?F,F3F,F,&F06#\"\"%F6F,F6\"\"!,$*&F?F,,&*(&F06#\"\"
+*F,F?F,F3F,F,&F06#\"\"'F6F,F6FJFJFJQ(pprint06\"" }}}{EXCHG {PARA 256 "
+" 0 "" {TEXT -1 178 "As you can directly see, the two numerical fluxes
+ are THE SAME, but only iff the Godunov flux based on the exact Rieman
+n solver is used. I admit that this was my mistake, sorry. " }
+{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 33 "simplif
+y(evalm(fGod-fGodSimple));" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#K%'vecto
+rG6#7+\"\"!F'F'F'F'F'F'F'F'Q(pprint06\"" }}}{EXCHG {PARA 0 "" 0 "" 
+{TEXT -1 60 "And here is the associated Rusanov flux for our choice of
+ QR" }{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 53 "f
+Rus:=simplify(evalm(1/2*A&*(QR+QL)-1/2*cp*(QR-QL)));" }}{PARA 12 "" 1 
+"" {XPPMATH 20 "6#>%%fRusGK%'vectorG6#7+,$*&%$cp|irG\"\"\",&*(&%#QLG6#
+\"\"(F,%%rho|irGF,F+F,F,&F06#F,!\"\"F,F6,$*&#F,\"\"#F,*&F+F6,,**F:F,F/
+F,F3F,)F+\"\"$F,F,*&F4F,)F+F:F,F6*,\"\"%F,F/F,F3F,F+F,)%$cs|irGF:F,F6*
+(F:F,F4F,FDF,F,*&&F06#F:F,FAF,F6F,F,F6,$*&#F,F:F,*&F+F6,,**F:F,F/F,F3F
+,F>F,F,F@F6*,FCF,F/F,F3F,F+F,FDF,F6*(F:F,F4F,FDF,F,*&&F06#F?F,FAF,F6F,
+F,F6,**&#F?FCF,*(&F06#\"\")F,FDF,F3F,F,F6*&#F,FCF,*&FEF,&F06#FCF,F,F,*
+&#F,FCF,**F+F,FYF,FEF,F3F,F,F6*&#F?FCF,*&F+F,FinF,F,F,,$*&#F,F:F,*&F+F
+,&F06#\"\"&F,F,F,,**&#F?FCF,*(&F06#\"\"*F,FDF,F3F,F,F6*&FgnF,*&FEF,&F0
+6#\"\"'F,F,F,*&#F,FCF,**F+F,F\\pF,FEF,F3F,F,F6*&F_oF,*&F+F,FapF,F,F,\"
+\"!,$*&FgnF,**,&*(FYF,FEF,F3F,F,FinF,F,,&FEF6F+F,F,FEF6F3F6F,F,,$*&Fgn
+F,**,&*(F\\pF,FEF,F3F,F,FapF,F,F_qF,FEF6F3F6F,F,Q(pprint06\"" }}}
+{EXCHG {PARA 0 "" 0 "" {TEXT -1 239 "However, as we can see, the numer
+ical flux for the stress is NOT the same if we take Godunov or Rusanov
+ (no surprise, the Godunov flux is based on the exact solution of the \+
+Riemann problem, while Rusanov uses only a simple two wave model) " }
+{MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 80 "simplif
+y(fGod[1]-fRus[1]);\nsimplify(fGod[4]-fRus[4]);\nsimplify(fGod[6]-fRus
+[6]);" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#\"\"!" }}{PARA 11 "" 1 "" 
+{XPPMATH 20 "6#,**&#\"\"\"\"\"%F&*(&%#QLG6#\"\")F&)%$cs|irG\"\"#F&%%rh
+o|irGF&F&!\"\"*&#\"\"$F'F&*&F.F&&F*6#F'F&F&F&*&#F&F'F&**%$cp|irGF&F)F&
+F.F&F0F&F&F&*&#F4F'F&*&F;F&F6F&F&F1" }}{PARA 11 "" 1 "" {XPPMATH 20 "6
+#,**&#\"\"\"\"\"%F&*(&%#QLG6#\"\"*F&)%$cs|irG\"\"#F&%%rho|irGF&F&!\"\"
+*&#\"\"$F'F&*&F.F&&F*6#\"\"'F&F&F&*&#F&F'F&**%$cp|irGF&F)F&F.F&F0F&F&F
+&*&#F4F'F&*&F<F&F6F&F&F1" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}}{MARK "49 0 0" 0 }
+{VIEWOPTS 1 1 0 1 1 1803 1 1 1 1 }{PAGENUMBERS 0 1 2 33 1 1 }
